@@ -115,20 +115,27 @@
 
 
 
-  <meta property="og:type" content="website">
-<meta property="og:title" content="草木染的博客">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="变量提升:  当栈内存(作用域)形成,JS代码自上而下执行之前,浏览器首先会把所有带”VAR / FUNCTION”关键字的进行提前地”声明”或者”定义”,这种预先处理机制称为”变量提升”   声明(declare):  var a  (默认值undefined)   定义(defined):  a = 12  (定义就是赋值操作)   变量提升阶段:  带”VAR”的只声明未定义 带”FUNC">
+<meta property="og:type" content="article">
+<meta property="og:title" content="变量提升机制">
+<meta property="og:url" content="http://yoursite.com/2018/11/01/变量提升机制/index.html">
 <meta property="og:site_name" content="草木染的博客">
+<meta property="og:description" content="变量提升:  当栈内存(作用域)形成,JS代码自上而下执行之前,浏览器首先会把所有带”VAR / FUNCTION”关键字的进行提前地”声明”或者”定义”,这种预先处理机制称为”变量提升”   声明(declare):  var a  (默认值undefined)   定义(defined):  a = 12  (定义就是赋值操作)   变量提升阶段:  带”VAR”的只声明未定义 带”FUNC">
 <meta property="og:locale" content="zh-CN">
+<meta property="og:image" content="http://yoursite.com/2018/11/01/变量提升机制/1532922140175.png">
+<meta property="og:image" content="http://yoursite.com/2018/11/01/1532925326770.png">
+<meta property="og:updated_time" content="2018-11-24T04:24:42.579Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="草木染的博客">
+<meta name="twitter:title" content="变量提升机制">
+<meta name="twitter:description" content="变量提升:  当栈内存(作用域)形成,JS代码自上而下执行之前,浏览器首先会把所有带”VAR / FUNCTION”关键字的进行提前地”声明”或者”定义”,这种预先处理机制称为”变量提升”   声明(declare):  var a  (默认值undefined)   定义(defined):  a = 12  (定义就是赋值操作)   变量提升阶段:  带”VAR”的只声明未定义 带”FUNC">
+<meta name="twitter:image" content="http://yoursite.com/2018/11/01/变量提升机制/1532922140175.png">
 
 
 
 
 
 
-  <link rel="canonical" href="http://yoursite.com/">
+  <link rel="canonical" href="http://yoursite.com/2018/11/01/变量提升机制/">
 
 
 
@@ -138,7 +145,7 @@
   };
 </script>
 
-  <title>草木染的博客</title>
+  <title>变量提升机制 | 草木染的博客</title>
   
 
 
@@ -187,8 +194,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope="" itemtype="http://schema.org/WPHeader">
@@ -229,7 +235,7 @@
         
         
           
-          <li class="menu-item menu-item-home menu-item-active">
+          <li class="menu-item menu-item-home">
 
     
     
@@ -342,9 +348,9 @@
           
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -376,10 +382,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2018/11/01/变量提升机制/" class="post-title-link" itemprop="http://yoursite.com/index.html">变量提升机制</a>
+          <h1 class="post-title" itemprop="name headline">变量提升机制
               
             
           </h1>
@@ -472,9 +475,7 @@
       
 
       
-        
-          
-            <ul>
+        <ul>
 <li><p>变量提升:</p>
 <blockquote>
 <p>当栈内存(作用域)形成,JS代码自上而下执行之前,浏览器首先会把所有带”VAR / FUNCTION”关键字的进行提前地”声明”或者”定义”,这种预先处理机制称为”变量提升”</p>
@@ -515,8 +516,6 @@
 <p>私有作用域中带VAR和不带VAR也有区别<br>1.带VAR的在私有作用域变量提升阶段,都声明为私有变量,和外界没有任何关系<br>2.不带VAR的不是私有变量,会向它的上级作用域查找,看是否为上级的变量;若不是,则继续向上查找,一直找到window为止(这种查找机制叫做”作用域链”),也就是在私有作用域中操作的这个非私有变量,是一直在操作别人的变量</p>
 </blockquote>
 
-          
-        
       
     </div>
 
@@ -539,198 +538,28 @@
       
 
       
-
-      
-
       
       
-        <div class="post-eof"></div>
+
       
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/01/堆栈问题/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="LuYitong">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="草木染的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2018/11/01/堆栈问题/" class="post-title-link" itemprop="http://yoursite.com/index.html">堆栈问题</a>
-              
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
             
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
+              <a href="/2018/11/01/堆栈问题/" rel="next" title="堆栈问题">
+                <i class="fa fa-chevron-left"></i> 堆栈问题
+              </a>
             
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
             
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-11-01 21:07:49" itemprop="dateCreated datePublished" datetime="2018-11-01T21:07:49+08:00">2018-11-01</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2018-11-24 12:19:58" itemprop="dateModified" datetime="2018-11-24T12:19:58+08:00">2018-11-24</time>
-              
-            
-          </span>
-
-          
-            <span class="post-category">
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/JavaScript/" itemprop="url" rel="index"><span itemprop="name">JavaScript</span></a></span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
+          </div>
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          
-            <ul>
-<li><strong>栈内存:作用域</strong><ul>
-<li>1.提供一个供JS代码自上而下执行的环境(代码都是在栈内存中执行的)</li>
-<li>2.由于基本数据值比较简单,它们都是直接在栈内存中开辟一个位置,把值直接存储进去的</li>
-<li>当栈内存被销毁时,存储的那些基本值也都跟着销毁了</li>
-</ul>
-</li>
-<li><strong>堆内存:引用值对应的空间</strong><ul>
-<li>1.存储引用数据类型值(对象:键值对; 函数:代码字符串)</li>
-<li>当前堆内存释放销毁,那么这个引用值彻底消失</li>
-<li>2.堆内存的释放:当堆内存没有被任何的变量或者其它东西所占用,浏览器会在空闲的时候,自主地进行内存回收,把所有不被占用的堆内存销毁掉(谷歌浏览器)</li>
-<li>xxx = null :通过空对象指针null可以让原始变量(或者其它东西)谁都不指向,那么原有被占用的堆内存就没有东西占用了,浏览器会销毁它</li>
-</ul>
-</li>
-</ul>
-
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-       
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -740,167 +569,15 @@
   </article>
 
 
-    
-      
-
-  
-
-  
-  
-  
-
-  
-
-  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/01/我个人博客的第一篇博客，哈哈哈/">
-
-    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="LuYitong">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="草木染的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                
-                <a href="/2018/11/01/我个人博客的第一篇博客，哈哈哈/" class="post-title-link" itemprop="http://yoursite.com/index.html">我个人博客的第一篇博客，哈哈哈...</a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-
-            
-            
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-
-              
-                
-              
-
-              <time title="创建时间：2018-11-01 10:02:15" itemprop="dateCreated datePublished" datetime="2018-11-01T10:02:15+08:00">2018-11-01</time>
-            
-
-            
-              
-
-              
-                
-                <span class="post-meta-divider">|</span>
-                
-
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                
-                  <span class="post-meta-item-text">更新于</span>
-                
-                <time title="修改时间：2018-11-24 12:22:49" itemprop="dateModified" datetime="2018-11-24T12:22:49+08:00">2018-11-24</time>
-              
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            
-          
-        
-      
-    </div>
-
-    
-
-    
-    
-    
-
-    
-
-    
-       
-    
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
   </div>
-  
-  
-  
-  </article>
-
-
-    
-  </section>
-
-  
 
 
           </div>
           
+
+  
+
+
 
         </div>
         
@@ -1116,6 +793,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=6.5.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=6.5.0"></script>
+
+
 
   
 
