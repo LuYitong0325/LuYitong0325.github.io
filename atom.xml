@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-11-25T07:39:05.855Z</updated>
+  <updated>2018-11-25T07:50:27.646Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -18,10 +18,10 @@
   
   <entry>
     <title>JS中暂时性死区</title>
-    <link href="http://yoursite.com/2018/11/25/JS%E4%B8%AD%E6%9A%82%E6%97%B6%E6%80%A7%E6%AD%BB%E5%8C%BA/"/>
-    <id>http://yoursite.com/2018/11/25/JS中暂时性死区/</id>
-    <published>2018-11-25T07:25:24.000Z</published>
-    <updated>2018-11-25T07:39:05.855Z</updated>
+    <link href="http://yoursite.com/2018/11/03/JS%E4%B8%AD%E6%9A%82%E6%97%B6%E6%80%A7%E6%AD%BB%E5%8C%BA/"/>
+    <id>http://yoursite.com/2018/11/03/JS中暂时性死区/</id>
+    <published>2018-11-03T07:25:24.000Z</published>
+    <updated>2018-11-25T07:50:27.646Z</updated>
     
     <content type="html"><![CDATA[<p><strong>JS中暂时性死区问题</strong></p><blockquote><p>基于LET创建变量,会把大部分{ }当做一个私有的块级作用域(类似于函数的私有作用域),在这里也是重新检测语法规范,看一下是否是基于语法创建的变量(按照新语法规范来解析)</p></blockquote><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">12</span>;</span><br><span class="line"><span class="keyword">if</span> (<span class="literal">true</span>)&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(a);  <span class="comment">// a is not defined</span></span><br><span class="line">    <span class="keyword">let</span> a = <span class="number">13</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">var</span> a = <span class="number">12</span>;</span><br><span class="line"><span class="keyword">if</span> (<span class="literal">true</span>)&#123;</span><br><span class="line">    <span class="built_in">console</span>.log(a);  <span class="comment">// 12</span></span><br><span class="line">    <span class="keyword">var</span> a = <span class="number">13</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> a);  <span class="comment">// undefined</span></span><br><span class="line"><span class="keyword">var</span> a;</span><br><span class="line"></span><br><span class="line"><span class="built_in">console</span>.log(a);  <span class="comment">// a is not defined</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> a);  <span class="comment">// undefined</span></span><br><span class="line"><span class="comment">// 在原有浏览器渲染机制下,基于typeof等逻辑运算符检测一个未被声明过的变量,不会报错</span></span><br></pre></td></tr></table></figure><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(a);  <span class="comment">// a is not defined</span></span><br><span class="line"><span class="built_in">console</span>.log(<span class="keyword">typeof</span> a);  <span class="comment">// a is not defined</span></span><br><span class="line"><span class="keyword">let</span> a;  <span class="comment">// 如果当前变量是基于ES6语法处理,在没有声明这个变量的时候,使用TYPEOF检测会直接报错,不会是undefined,解决了原有的JS死区</span></span><br></pre></td></tr></table></figure>]]></content>
     
