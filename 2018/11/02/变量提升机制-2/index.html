@@ -123,7 +123,7 @@
 <meta property="og:site_name" content="草木染的博客">
 <meta property="og:description" content="变量提升机制下重名的处理  1.带VAR和FUNCTION关键字声明相同的名字,这种也算是重名了(其实是一个FN,只是存储值的类型不一样) 2.关于重名的处理:如果名字重复了,不会重新地声明,但是会重新地定义(重新赋值) [不管是变量提升阶段还是代码执行阶段皆是如此]123456789101112131415161718/* * 变量提升: *   fn = ... (1) *      = ..">
 <meta property="og:locale" content="zh-CN">
-<meta property="og:updated_time" content="2018-11-25T07:22:20.527Z">
+<meta property="og:updated_time" content="2018-11-25T07:24:28.982Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="变量提升机制(2)">
 <meta name="twitter:description" content="变量提升机制下重名的处理  1.带VAR和FUNCTION关键字声明相同的名字,这种也算是重名了(其实是一个FN,只是存储值的类型不一样) 2.关于重名的处理:如果名字重复了,不会重新地声明,但是会重新地定义(重新赋值) [不管是变量提升阶段还是代码执行阶段皆是如此]123456789101112131415161718/* * 变量提升: *   fn = ... (1) *      = ..">
@@ -458,7 +458,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-11-25 15:22:20" itemprop="dateModified" datetime="2018-11-25T15:22:20+08:00">2018-11-25</time>
+                <time title="修改时间：2018-11-25 15:24:28" itemprop="dateModified" datetime="2018-11-25T15:24:28+08:00">2018-11-25</time>
               
             
           </span>
@@ -528,9 +528,9 @@
 <li>在ES6中基于LET/CONST等方式创建变量或者函数,不存在变量提升机制</li>
 <li>切断了全局变量和WINDOW属性的映射机制</li>
 <li>在相同的作用域中,基于LET不能声明相同名字的变量(不管用什么方式在当前作用域下声明了变量,再次使用LET创建都会报错)</li>
-<li>虽然没有变量提升机制,但是在当前作用域代码自上而下执行之前,浏览器会做一个重复性检测(语法检测):自上而下查找当前作用域下所有变量,一旦发现有重复的,直接抛出异常,代码也不会再执行了(虽然没有把变量提前声明定义,但是浏览器已经记住了当前作用域下有哪些变量)<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(a);  <span class="comment">// a is not defined</span></span><br><span class="line"><span class="keyword">let</span> a = <span class="number">12</span>;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">window</span>.a);  <span class="comment">// undefined</span></span><br><span class="line"><span class="built_in">console</span>.log(a);  <span class="comment">// 12</span></span><br></pre></td></tr></table></figure>
-</li>
+<li>虽然没有变量提升机制,但是在当前作用域代码自上而下执行之前,浏览器会做一个重复性检测(语法检测):自上而下查找当前作用域下所有变量,一旦发现有重复的,直接抛出异常,代码也不会再执行了(虽然没有把变量提前声明定义,但是浏览器已经记住了当前作用域下有哪些变量)</li>
 </ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(a);  <span class="comment">// a is not defined</span></span><br><span class="line"><span class="keyword">let</span> a = <span class="number">12</span>;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">window</span>.a);  <span class="comment">// undefined</span></span><br><span class="line"><span class="built_in">console</span>.log(a);  <span class="comment">// 12</span></span><br></pre></td></tr></table></figure>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">12</span>;</span><br><span class="line"><span class="keyword">var</span> a = <span class="number">13</span>;</span><br><span class="line"><span class="built_in">console</span>.log(a);  <span class="comment">// 13</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> a = <span class="number">12</span>;</span><br><span class="line"><span class="built_in">console</span>.log(a);</span><br><span class="line"><span class="keyword">let</span> a = <span class="number">13</span>;  <span class="comment">// Identifier 'a' has already been declared</span></span><br><span class="line"><span class="built_in">console</span>.log(a);</span><br><span class="line"></span><br><span class="line">b = <span class="number">12</span>;</span><br><span class="line"><span class="built_in">console</span>.log(b);  <span class="comment">// 12</span></span><br><span class="line">a = <span class="number">12</span>;  <span class="comment">// a is not defined</span></span><br><span class="line"><span class="built_in">console</span>.log(a);</span><br><span class="line"><span class="keyword">let</span> a = <span class="number">13</span>;</span><br><span class="line"><span class="built_in">console</span>.log(a);</span><br></pre></td></tr></table></figure>
 <figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> a = <span class="number">10</span>,</span><br><span class="line">    b = <span class="number">10</span>;</span><br><span class="line"><span class="keyword">let</span> fn = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">//console.log(a, b);  // a is not defined</span></span><br><span class="line">    <span class="keyword">let</span> a = b = <span class="number">20</span>;  <span class="comment">// b = 20  ==&gt;把全局中的b=20</span></span><br><span class="line">    <span class="built_in">console</span>.log(a, b);  <span class="comment">// 20 20</span></span><br><span class="line">&#125;;</span><br><span class="line">fn();</span><br><span class="line"><span class="built_in">console</span>.log(a, b);  <span class="comment">// 10 20</span></span><br></pre></td></tr></table></figure>
       
@@ -571,6 +571,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/11/02/私有变量和全局变量/" rel="prev" title="私有变量和全局变量">
+                私有变量和全局变量 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -633,7 +637,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">4</span>
+                    <span class="site-state-item-count">6</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
