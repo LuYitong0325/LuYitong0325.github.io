@@ -396,7 +396,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/01/变量提升机制/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/02/变量提升机制-2/">
 
     <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
       <meta itemprop="name" content="LuYitong">
@@ -416,7 +416,194 @@
           <h1 class="post-title" itemprop="name headline">
                 
                 
-                <a href="/2018/11/01/变量提升机制/" class="post-title-link" itemprop="http://yoursite.com/index.html">变量提升机制</a>
+                <a href="/2018/11/02/变量提升机制-2/" class="post-title-link" itemprop="http://yoursite.com/index.html">变量提升机制(2)</a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+
+            
+            
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+
+              
+                
+              
+
+              <time title="创建时间：2018-11-02 15:19:37" itemprop="dateCreated datePublished" datetime="2018-11-02T15:19:37+08:00">2018-11-02</time>
+            
+
+            
+              
+
+              
+                
+                <span class="post-meta-divider">|</span>
+                
+
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-calendar-check-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">更新于</span>
+                
+                <time title="修改时间：2018-11-25 15:22:20" itemprop="dateModified" datetime="2018-11-25T15:22:20+08:00">2018-11-25</time>
+              
+            
+          </span>
+
+          
+            <span class="post-category">
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope="" itemtype="http://schema.org/Thing"><a href="/categories/JavaScript/" itemprop="url" rel="index"><span itemprop="name">JavaScript</span></a></span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><strong>变量提升机制下重名的处理</strong></p>
+<ul>
+<li>1.带VAR和FUNCTION关键字声明相同的名字,这种也算是重名了(其实是一个FN,只是存储值的类型不一样)</li>
+<li>2.关于重名的处理:如果名字重复了,不会重新地声明,但是会重新地定义(重新赋值) [不管是变量提升阶段还是代码执行阶段皆是如此]<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * 变量提升:</span></span><br><span class="line"><span class="comment"> *   fn = ... (1)</span></span><br><span class="line"><span class="comment"> *      = ... (2)</span></span><br><span class="line"><span class="comment"> *      = ... (3)</span></span><br><span class="line"><span class="comment"> *      = ... (4)</span></span><br><span class="line"><span class="comment"> * */</span></span><br><span class="line">fn();  <span class="comment">// 4</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>) </span>&#123;<span class="built_in">console</span>.log(<span class="number">1</span>);&#125;</span><br><span class="line">fn();  <span class="comment">// 4</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>) </span>&#123;<span class="built_in">console</span>.log(<span class="number">2</span>);&#125;</span><br><span class="line">fn();  <span class="comment">// 4</span></span><br><span class="line"><span class="keyword">var</span> fn = <span class="number">100</span>;  <span class="comment">//=&gt;带VAR的在变量提升阶段只把声明处理了,赋值操作没有处理,所以在代码执行的时候需要完成赋值 FN=100</span></span><br><span class="line">fn();  <span class="comment">// 100() =&gt;fn is not a function</span></span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>) </span>&#123;<span class="built_in">console</span>.log(<span class="number">3</span>);&#125;</span><br><span class="line">fn();</span><br><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">fn</span>(<span class="params"></span>) </span>&#123;<span class="built_in">console</span>.log(<span class="number">4</span>);&#125;</span><br><span class="line">fn();</span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<hr>
+<p><strong>ES6中的LET不存在变量提升</strong></p>
+<ul>
+<li>在ES6中基于LET/CONST等方式创建变量或者函数,不存在变量提升机制</li>
+<li>切断了全局变量和WINDOW属性的映射机制</li>
+<li>在相同的作用域中,基于LET不能声明相同名字的变量(不管用什么方式在当前作用域下声明了变量,再次使用LET创建都会报错)</li>
+<li>虽然没有变量提升机制,但是在当前作用域代码自上而下执行之前,浏览器会做一个重复性检测(语法检测):自上而下查找当前作用域下所有变量,一旦发现有重复的,直接抛出异常,代码也不会再执行了(虽然没有把变量提前声明定义,但是浏览器已经记住了当前作用域下有哪些变量)<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">console</span>.log(a);  <span class="comment">// a is not defined</span></span><br><span class="line"><span class="keyword">let</span> a = <span class="number">12</span>;</span><br><span class="line"><span class="built_in">console</span>.log(<span class="built_in">window</span>.a);  <span class="comment">// undefined</span></span><br><span class="line"><span class="built_in">console</span>.log(a);  <span class="comment">// 12</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">var</span> a = <span class="number">12</span>;</span><br><span class="line"><span class="keyword">var</span> a = <span class="number">13</span>;</span><br><span class="line"><span class="built_in">console</span>.log(a);  <span class="comment">// 13</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">let</span> a = <span class="number">12</span>;</span><br><span class="line"><span class="built_in">console</span>.log(a);</span><br><span class="line"><span class="keyword">let</span> a = <span class="number">13</span>;  <span class="comment">// Identifier 'a' has already been declared</span></span><br><span class="line"><span class="built_in">console</span>.log(a);</span><br><span class="line"></span><br><span class="line">b = <span class="number">12</span>;</span><br><span class="line"><span class="built_in">console</span>.log(b);  <span class="comment">// 12</span></span><br><span class="line">a = <span class="number">12</span>;  <span class="comment">// a is not defined</span></span><br><span class="line"><span class="built_in">console</span>.log(a);</span><br><span class="line"><span class="keyword">let</span> a = <span class="number">13</span>;</span><br><span class="line"><span class="built_in">console</span>.log(a);</span><br></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">let</span> a = <span class="number">10</span>,</span><br><span class="line">    b = <span class="number">10</span>;</span><br><span class="line"><span class="keyword">let</span> fn = <span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">    <span class="comment">//console.log(a, b);  // a is not defined</span></span><br><span class="line">    <span class="keyword">let</span> a = b = <span class="number">20</span>;  <span class="comment">// b = 20  ==&gt;把全局中的b=20</span></span><br><span class="line">    <span class="built_in">console</span>.log(a, b);  <span class="comment">// 20 20</span></span><br><span class="line">&#125;;</span><br><span class="line">fn();</span><br><span class="line"><span class="built_in">console</span>.log(a, b);  <span class="comment">// 10 20</span></span><br></pre></td></tr></table></figure>
+          
+        
+      
+    </div>
+
+    
+
+    
+    
+    
+
+    
+
+    
+       
+    
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  
+
+  <article class="post post-type-normal" itemscope="" itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/01/变量提升机制-1/">
+
+    <span hidden itemprop="author" itemscope="" itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="LuYitong">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope="" itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="草木染的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                
+                <a href="/2018/11/01/变量提升机制-1/" class="post-title-link" itemprop="http://yoursite.com/index.html">变量提升机制(1)</a>
               
             
           </h1>
@@ -458,7 +645,7 @@
                 
                   <span class="post-meta-item-text">更新于</span>
                 
-                <time title="修改时间：2018-11-25 15:06:24" itemprop="dateModified" datetime="2018-11-25T15:06:24+08:00">2018-11-25</time>
+                <time title="修改时间：2018-11-25 15:20:47" itemprop="dateModified" datetime="2018-11-25T15:20:47+08:00">2018-11-25</time>
               
             
           </span>
@@ -976,7 +1163,7 @@
                 
                   <a href="/archives/">
                 
-                    <span class="site-state-item-count">3</span>
+                    <span class="site-state-item-count">4</span>
                     <span class="site-state-item-name">日志</span>
                   </a>
                 </div>
